@@ -12,6 +12,19 @@ async function main() {
   const Randomizer = await hre.ethers.getContractAt('Randomizer', deployment.Randomizer);
   console.log(`Using Randomizer deployed at ${Randomizer.address}`);
 
+  await _showPreviousRequests(Randomizer);
+
+  Randomizer.on('RandomNumberReceived', (idx, id, value) => {
+    console.log(`Request fulfilled! ${idx}, with id ${id}: ${value}`);
+  });
+
+  // Do not exit
+  await new Promise(() => {});
+}
+
+async function _showPreviousRequests(Randomizer) {
+  console.log('Listing previous requests...');
+
   const numRequests = await Randomizer.numberOfRequests();
   console.log(`Number of requests: ${numRequests}`);
 

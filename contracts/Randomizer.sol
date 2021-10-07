@@ -14,6 +14,8 @@ contract Randomizer is VRFConsumerBase {
     bytes32[] public randomNumberRequestIds;
     mapping(bytes32 => uint) public randomNumbers;
 
+    event RandomNumberReceived(uint idx, bytes32 id, uint value);
+
     constructor() VRFConsumerBase(
         VRF_COORDINATOR_ADDRESS_KOVAN,
         LINK_TOKEN_ADDRESS_KOVAN
@@ -27,14 +29,15 @@ contract Randomizer is VRFConsumerBase {
     }
 
     function fulfillRandomness(bytes32 requestId, uint randomNumber) internal override {
+        emit RandomNumberReceived(numberOfRequests(), requestId, randomNumber);
+
         randomNumbers[requestId] = randomNumber;
     }
 
-    function numberOfRequests() external view returns (uint) {
+    function numberOfRequests() public view returns (uint) {
         return randomNumberRequestIds.length;
     }
 
-    // Get Kovan LINK here: https://faucets.chain.link/kovan
     function canPayForARequest() public view returns (bool) {
         uint linkBalance = IERC20(LINK_TOKEN_ADDRESS_KOVAN).balanceOf(address(this));
 

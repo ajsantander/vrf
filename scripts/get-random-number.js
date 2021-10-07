@@ -18,7 +18,7 @@ async function main() {
   const canPay = await Randomizer.canPayForARequest();
   console.log(`Randomizer can pay for a request: ${canPay}`);
   if (!canPay) {
-    throw new Error('Randomizer needs more link to pay for a random number request');
+    throw new Error('Randomizer needs more link to pay for a random number request. Get Kovan LINK here https://faucets.chain.link/kovan');
   }
 
   await _requestNewRandomNumber(Randomizer);
