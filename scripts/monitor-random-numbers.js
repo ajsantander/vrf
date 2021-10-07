@@ -9,6 +9,10 @@ async function main() {
     throw new Error('Cannot find deployed Randomizer contract');
   }
 
+  console.log(`Note: Random numbers are within the range 1 to MaxUint256: ${
+    ethers.constants.MaxUint256
+  }`);
+
   const Randomizer = await hre.ethers.getContractAt('Randomizer', deployment.Randomizer);
   console.log(`Using Randomizer deployed at ${Randomizer.address}`);
 
