@@ -15,7 +15,7 @@ async function main() {
   await _showPreviousRequests(Randomizer);
 
   Randomizer.on('RandomNumberReceived', (idx, id, value) => {
-    console.log(`Request fulfilled! ${idx}, with id ${id}: ${value}`);
+    console.log(`> Request fulfilled! ${idx}, with id ${id}: ${value}`);
   });
 
   // Do not exit
@@ -32,7 +32,7 @@ async function _showPreviousRequests(Randomizer) {
     const requestId = await Randomizer.randomNumberRequestIds(i);
     const randomNumber = await Randomizer.randomNumbers(requestId);
 
-    console.log(`Request ${i}, with id ${requestId}: ${randomNumber}`);
+    console.log(`> Request ${i}, with id ${requestId}: ${randomNumber}`);
   }
 }
 

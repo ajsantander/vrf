@@ -12,6 +12,7 @@ See https://docs.chain.link/docs/get-a-random-number/
 ### Testing
 
 1) Run `npx hardhat run scripts/deploy.js`
-2) Run `npx hardhat run scripts/get-random-number.js`
-3) (in another terminal) Run `npx hardhat run scripts/monitor-random-numbers.js`
-4) Repeat 2 ad infinitum
+2) Get your deployed contract some LINK: https://faucets.chain.link/kovan
+3) Run `npx hardhat run scripts/get-random-number.js`
+4) (in another terminal) Run `npx hardhat run scripts/monitor-random-numbers.js`
+5) Repeat 2 ad infinitum
