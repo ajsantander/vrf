@@ -1,0 +1,17 @@
+{
+  "name": "hardhat_basic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@chainlink/contracts": "^0.2.2",
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "dotenv": "^10.0.0",
+    "ethers": "^5.4.7",
+    "hardhat": "^2.6.5",
+    "inquirer": "^8.2.0"
+  }
+}
